@@ -63,6 +63,8 @@ func pseudo_uuid() (uuid string) {
 }
 func main() {
 	makeStorage()
+	fs := http.FileServer(http.Dir("style"))
+	http.Handle("/style/", http.StripPrefix("/style/", fs))
 
 	http.HandleFunc("/Todolists", listTodoListsPageHandler)
 	http.HandleFunc("/createTodoList", createTodoList)
