@@ -79,7 +79,7 @@ func main() {
 }
 func submitProject(writer http.ResponseWriter, request *http.Request) {
 	Info.Println(request.Form["projectName"])
-	PageTemplates.ExecuteTemplate(writer, "")
+
 }
 func scanid(writer http.ResponseWriter, request *http.Request) {
 	PageTemplates.ExecuteTemplate(writer, "scanid.html", nil)
