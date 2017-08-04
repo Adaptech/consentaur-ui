@@ -69,7 +69,11 @@ func main() {
 	http.HandleFunc("/Todolists", listTodoListsPageHandler)
 	http.HandleFunc("/createTodoList", createTodoList)
 	http.HandleFunc("/createTodoListForm", showCreateTodoListForm)
+	http.HandleFunc("/index.html", presentIndex)
 	http.ListenAndServe(":8080", nil)
+}
+func presentIndex(writer http.ResponseWriter, request *http.Request) {
+	PageTemplates.ExecuteTemplate(writer, "index.html", nil)
 }
 func showCreateTodoListForm(writer http.ResponseWriter, request *http.Request) {
 	PageTemplates.ExecuteTemplate(writer, "createTodoList.html", nil)
