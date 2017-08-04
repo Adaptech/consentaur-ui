@@ -70,7 +70,23 @@ func main() {
 	http.HandleFunc("/createTodoList", createTodoList)
 	http.HandleFunc("/createTodoListForm", showCreateTodoListForm)
 	http.HandleFunc("/index.html", presentIndex)
+	http.HandleFunc("/enroll.html", enroll)
+	http.HandleFunc("/notifications.html", notifications)
+	http.HandleFunc("/privatekey.html", privateKey)
+	http.HandleFunc("/scanid.html", scanid)
 	http.ListenAndServe(":8080", nil)
+}
+func scanid(writer http.ResponseWriter, request *http.Request) {
+	PageTemplates.ExecuteTemplate(writer, "scanid.html", nil)
+}
+func privateKey(writer http.ResponseWriter, request *http.Request) {
+	PageTemplates.ExecuteTemplate(writer, "privatekey.html", nil)
+}
+func notifications(writer http.ResponseWriter, request *http.Request) {
+	PageTemplates.ExecuteTemplate(writer, "notifications.html", nil)
+}
+func enroll(writer http.ResponseWriter, request *http.Request) {
+	PageTemplates.ExecuteTemplate(writer, "enroll.html", nil)
 }
 func presentIndex(writer http.ResponseWriter, request *http.Request) {
 	PageTemplates.ExecuteTemplate(writer, "index.html", nil)
